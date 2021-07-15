@@ -165,7 +165,8 @@ def start(bot: Bot, update: Update, args: List[str]):
             send_start(bot, update)
     else:
         update.effective_message.reply_text("Heya,{} Here..\nHow can I help you?🙂".format(bot.first_name),reply_markup=InlineKeyboardMarkup(
-                                                [[InlineKeyboardButton(text="Help❔",url="t.me/{}?start=help".format(bot.username))]]))
+                                                [[InlineKeyboardButton(text="Help❔",url="t.me/{}?start=help".format(bot.username))],
+                                                [InlineKeyboardButton(text="Support Group 😇",url="https://t.me/kittysupport")]]))
 
 def send_start(bot, update):
     #Try to remove old message
@@ -179,7 +180,7 @@ def send_start(bot, update):
     first_name = update.effective_user.first_name 
     text = PM_START_TEXT
 
-    keyboard = [[InlineKeyboardButton(text="Help ❔",callback_data="help_back"),InlineKeyboardButton(text="Creator 🔱",url="https://t.me/DON_OF_TELEGRAM")]]
+    keyboard = [[InlineKeyboardButton(text="Help ❔",callback_data="help_back"),InlineKeyboardButton(text="Creator 🔱",url="https://t.me/THE_BOSS_OF_TELEGRAM")]]
     keyboard += [[InlineKeyboardButton(text="Connect 🎗", callback_data="main_connect"),InlineKeyboardButton(text="Add Me 🎉",url="t.me/{}?startgroup=true".format(bot.username))]]
 
     update.effective_message.reply_photo(img, PM_START_TEXT.format(escape_markdown(first_name), escape_markdown(bot.first_name), OWNER_NAME, OWNER_ID), 
